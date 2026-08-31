@@ -1,6 +1,7 @@
 # FinWise AI — Smart Budget Assistant
 Demo:
 https://fintech-9h4qumpsksshphkyrljzfo.streamlit.app/
+
 An educational LangChain + Streamlit prototype that turns a user's monthly
 income, expenses, and savings into a structured, AI-generated budget dashboard.
 
