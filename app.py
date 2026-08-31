@@ -31,91 +31,405 @@ st.set_page_config(
 # ---------------------------------------------------------------------------
 # Styling
 # ---------------------------------------------------------------------------
-st.markdown(
-    """
-    <style>
-    @import url('https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;700;800&display=swap');
+st.markdown("""
+<style>
 
-    html, body, [class*="css"]  { font-family: 'Manrope', sans-serif; }
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@600;700&display=swap');
 
-    .stApp {
-        background: radial-gradient(circle at 15% 0%, #101a2e 0%, #0b0f1a 45%, #05070c 100%);
-    }
+/* ==============================
+   GLOBAL
+   ============================== */
 
-    #MainMenu, footer, header { visibility: hidden; }
+html, body, [class*="css"] {
+    font-family: 'DM Sans', sans-serif;
+}
 
-    .fw-hero {
-        background: linear-gradient(135deg, #6366f1 0%, #8b5cf6 50%, #ec4899 100%);
-        border-radius: 20px;
-        padding: 34px 40px;
-        margin-bottom: 28px;
-        box-shadow: 0 20px 45px -20px rgba(99,102,241,0.55);
-    }
-    .fw-hero h1 { color: white; font-size: 2.1rem; font-weight: 800; margin: 0 0 6px 0; }
-    .fw-hero p { color: rgba(255,255,255,0.9); font-size: 1rem; margin: 0; }
+.stApp {
+    background: #0b1220 !important;
+    color: #f5f7f6 !important;
+}
 
-    .fw-card {
-        background: rgba(255,255,255,0.045);
-        border: 1px solid rgba(255,255,255,0.09);
-        border-radius: 16px;
-        padding: 22px 24px;
-        margin-bottom: 18px;
-    }
+.main {
+    background: #0b1220 !important;
+}
 
-    .fw-disclaimer {
-        background: rgba(236,72,153,0.10);
-        border: 1px solid rgba(236,72,153,0.35);
-        border-radius: 12px;
-        padding: 12px 16px;
-        font-size: 0.82rem;
-        color: #fbcfe8;
-        margin-bottom: 18px;
-    }
+.block-container {
+    max-width: 1180px;
+    padding-top: 2rem;
+    padding-bottom: 4rem;
+}
 
-    .fw-badge {
-        display: inline-block;
-        padding: 4px 12px;
-        border-radius: 999px;
-        font-size: 0.78rem;
-        font-weight: 700;
-        letter-spacing: 0.02em;
-    }
+/* ==============================
+   ALL TEXT
+   ============================== */
 
-    .fw-priority {
-        background: rgba(99,102,241,0.10);
-        border-left: 3px solid #818cf8;
-        border-radius: 8px;
-        padding: 10px 14px;
-        margin-bottom: 8px;
-        font-size: 0.92rem;
-    }
+.stApp p,
+.stApp span,
+.stApp label,
+.stApp div,
+.stApp li {
+    color: #e7ece9;
+}
 
-    div[data-testid="stMetric"] {
-        background: rgba(255,255,255,0.045);
-        border: 1px solid rgba(255,255,255,0.09);
-        border-radius: 14px;
-        padding: 14px 16px 10px 16px;
-    }
+.stApp h1,
+.stApp h2,
+.stApp h3,
+.stApp h4,
+.stApp h5,
+.stApp h6 {
+    color: #ffffff !important;
+}
 
-    .stButton > button {
-        border-radius: 10px;
-        font-weight: 700;
-        padding: 0.55rem 1.4rem;
-    }
+.stMarkdown {
+    color: #e7ece9 !important;
+}
 
-    .fw-step {
-        color: rgba(255,255,255,0.55);
-        font-size: 0.82rem;
-        font-weight: 700;
-        letter-spacing: 0.08em;
-        text-transform: uppercase;
-        margin-bottom: 6px;
-    }
-    </style>
-    """,
-    unsafe_allow_html=True,
-)
+.stCaption,
+[data-testid="stCaptionContainer"] {
+    color: #9da9a4 !important;
+}
 
+/* ==============================
+   HERO
+   ============================== */
+
+.hero {
+    padding: 3.2rem 3.2rem 2.8rem;
+    border: 1px solid #263449;
+    border-radius: 28px;
+    background: linear-gradient(
+        135deg,
+        #111b2d 0%,
+        #12251f 100%
+    );
+    margin-bottom: 1.5rem;
+    box-shadow: 0 20px 60px rgba(0,0,0,.25);
+}
+
+.eyebrow {
+    color: #69d3ad !important;
+    font-weight: 700;
+    letter-spacing: .12em;
+    text-transform: uppercase;
+    font-size: .78rem;
+}
+
+.hero h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: 3.8rem;
+    line-height: 1;
+    margin: .5rem 0 1rem;
+    color: #ffffff !important;
+}
+
+.hero p {
+    color: #aebbb5 !important;
+    max-width: 720px;
+    font-size: 1.08rem;
+    line-height: 1.7;
+}
+
+/* ==============================
+   CARDS
+   ============================== */
+
+.card {
+    background: #121c2c !important;
+    border: 1px solid #29374b;
+    border-radius: 20px;
+    padding: 1.35rem 1.45rem;
+    height: 100%;
+    box-shadow: 0 10px 30px rgba(0,0,0,.18);
+}
+
+.card p {
+    color: #9facaa !important;
+}
+
+.small-label {
+    color: #8f9d97 !important;
+    font-size: .78rem;
+    text-transform: uppercase;
+    letter-spacing: .08em;
+    font-weight: 700;
+}
+
+.big-number {
+    color: #ffffff !important;
+    font-size: 1.85rem;
+    font-weight: 700;
+    margin-top: .35rem;
+}
+
+/* ==============================
+   SECTION TITLES
+   ============================== */
+
+.section-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.75rem;
+    margin: 1.7rem 0 .8rem;
+    color: #ffffff !important;
+}
+
+/* ==============================
+   SIDEBAR
+   ============================== */
+
+section[data-testid="stSidebar"] {
+    background: #0d1726 !important;
+    border-right: 1px solid #263449;
+}
+
+section[data-testid="stSidebar"] * {
+    color: #e8eeeb !important;
+}
+
+section[data-testid="stSidebar"] hr {
+    border-color: #29374b !important;
+}
+
+/* ==============================
+   STEPS
+   ============================== */
+
+.step {
+    display: flex;
+    gap: 12px;
+    align-items: center;
+    margin: 7px 0;
+    color: #899791 !important;
+    font-size: .9rem;
+}
+
+.step span {
+    color: inherit !important;
+}
+
+.step.active {
+    color: #ffffff !important;
+    font-weight: 700;
+}
+
+.step-dot {
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #202b3d;
+    color: #a4b0aa !important;
+    font-weight: 700;
+}
+
+.step.active .step-dot {
+    background: #1f8b68;
+    color: #ffffff !important;
+}
+
+/* ==============================
+   FORM
+   ============================== */
+
+div[data-testid="stForm"] {
+    border: 1px solid #29374b;
+    border-radius: 22px;
+    padding: 1.5rem;
+    background: #111a29 !important;
+}
+
+/* Input labels */
+
+[data-testid="stWidgetLabel"] label,
+[data-testid="stWidgetLabel"] p {
+    color: #e8eeeb !important;
+    font-weight: 600;
+}
+
+/* Input boxes */
+
+.stTextInput input,
+.stNumberInput input,
+.stSelectbox div[data-baseweb="select"] > div {
+    background: #182335 !important;
+    color: #ffffff !important;
+    border-color: #34445a !important;
+}
+
+/* Placeholder */
+
+input::placeholder {
+    color: #7e8b87 !important;
+}
+
+/* Selectbox text */
+
+[data-baseweb="select"] * {
+    color: #ffffff !important;
+}
+
+/* ==============================
+   BUTTONS
+   ============================== */
+
+div.stButton > button,
+button[kind="primary"],
+.stFormSubmitButton button {
+    background: #1f8b68 !important;
+    color: #ffffff !important;
+    border: none !important;
+    border-radius: 12px;
+    min-height: 44px;
+    font-weight: 700;
+    transition: .2s ease;
+}
+
+div.stButton > button:hover,
+.stFormSubmitButton button:hover {
+    background: #2ca77f !important;
+    color: #ffffff !important;
+    border: none !important;
+}
+
+/* ==============================
+   METRICS
+   ============================== */
+
+[data-testid="stMetric"] {
+    background: #121c2c !important;
+    border: 1px solid #29374b;
+    border-radius: 18px;
+    padding: 1rem;
+}
+
+[data-testid="stMetricLabel"] {
+    color: #9da9a4 !important;
+}
+
+[data-testid="stMetricValue"] {
+    color: #ffffff !important;
+}
+
+/* ==============================
+   TABS
+   ============================== */
+
+button[data-baseweb="tab"] {
+    color: #9da9a4 !important;
+    font-weight: 600;
+}
+
+button[data-baseweb="tab"][aria-selected="true"] {
+    color: #69d3ad !important;
+}
+
+[data-baseweb="tab-highlight"] {
+    background-color: #69d3ad !important;
+}
+
+/* ==============================
+   EXPANDERS
+   ============================== */
+
+[data-testid="stExpander"] {
+    background: #121c2c !important;
+    border: 1px solid #29374b !important;
+    border-radius: 16px !important;
+}
+
+[data-testid="stExpander"] summary {
+    color: #ffffff !important;
+}
+
+[data-testid="stExpander"] summary p {
+    color: #ffffff !important;
+}
+
+/* ==============================
+   RESULT BOX
+   ============================== */
+
+.result-box {
+    border: 1px solid #29374b;
+    border-radius: 18px;
+    padding: 1.2rem;
+    background: #121c2c !important;
+}
+
+.result-box p {
+    color: #c1cbc6 !important;
+}
+
+/* ==============================
+   DISCLAIMER
+   ============================== */
+
+.disclaimer {
+    padding: 12px 15px;
+    border-radius: 12px;
+    background: #292313 !important;
+    border: 1px solid #66582e;
+    color: #e8d99a !important;
+    font-size: .82rem;
+    line-height: 1.5;
+}
+
+.disclaimer * {
+    color: #e8d99a !important;
+}
+
+/* ==============================
+   ALERTS
+   ============================== */
+
+[data-testid="stAlert"] {
+    color: #ffffff !important;
+}
+
+[data-testid="stAlert"] p {
+    color: inherit !important;
+}
+
+/* ==============================
+   PROGRESS BAR
+   ============================== */
+
+[data-testid="stProgress"] {
+    margin-top: 10px;
+}
+
+[data-testid="stProgress"] > div {
+    background: #263447 !important;
+}
+
+/* ==============================
+   GENERAL LINKS
+   ============================== */
+
+a {
+    color: #69d3ad !important;
+}
+
+/* ==============================
+   SCROLLBAR
+   ============================== */
+
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: #0b1220;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #34445a;
+    border-radius: 10px;
+}
+
+</style>
+""", unsafe_allow_html=True)
 # ---------------------------------------------------------------------------
 # Session state defaults
 # ---------------------------------------------------------------------------
